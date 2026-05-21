@@ -3,236 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klaus & Partner | Privatdetektei</title>
+    <title>Ermittlungs-Portal | Waldvilla Case</title>
     <style>
         :root {
-            --slate: #2c3e50;
-            --black: #1a1a1a;
-            --silver: #bdc3c7;
-            --accent: #7f8c8d;
+            --gold: #d4af37;
+            --becker-brown: #2B1B17;
+            --becker-black: #0a0a0a;
+            --kp-slate: #2c3e50;
+            --kp-black: #1a1a1a;
+            --text-light: #e0e0e0;
         }
 
         body {
-            background-color: var(--black);
-            color: var(--silver);
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Georgia', serif;
             margin: 0;
-            line-height: 1.6;
+            padding: 0;
+            background-color: #000;
+            color: var(--text-light);
+            scroll-behavior: smooth;
         }
 
-        header {
-            background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), 
-                        url('https://images.unsplash.com/photo-1453722751126-773f9983de64?q=80&w=2070'); /* Kamera/Linse Hintergrund */
-            background-size: cover;
-            padding: 60px 20px;
-            text-align: center;
-            border-bottom: 2px solid var(--slate);
-        }
-
-        .logo-container {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: white;
-            letter-spacing: 5px;
-        }
-
-        .logo-eye {
-            color: var(--accent);
-            font-size: 1.5rem;
-            vertical-align: middle;
-        }
-
-        .slogan {
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            margin-top: 10px;
-            color: var(--accent);
-        }
-
-        nav {
-            background: var(--slate);
+        /* Haupt-Navigation zum Umschalten der Seiten */
+        .main-nav {
+            background: #111;
             padding: 10px;
             text-align: center;
+            border-bottom: 1px solid #333;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 0.8rem;
+        .main-nav button {
+            background: transparent;
+            color: #888;
+            border: 1px solid #444;
+            padding: 8px 20px;
+            margin: 0 10px;
+            cursor: pointer;
             text-transform: uppercase;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .card {
-            background: #222;
-            padding: 25px;
-            border-left: 3px solid var(--accent);
+            font-size: 0.8rem;
             transition: 0.3s;
         }
 
-        .card:hover {
-            background: #2a2a2a;
-            border-left-color: white;
+        .main-nav button.active {
+            color: var(--gold);
+            border-color: var(--gold);
         }
 
-        .card h3 { color: white; margin-top: 0; }
-
-        /* Mandanten Portal */
-        .portal-section {
-            background: var(--slate);
-            color: white;
-            padding: 40px;
-            margin-top: 50px;
-            border-radius: 4px;
+        /* --- Sektion 1: Kanzlei Becker --- */
+        #becker-site {
+            display: block; /* Standardansicht */
+            background-color: var(--becker-black);
         }
 
-        .login-form {
-            display: flex;
-            flex-direction: column;
-            max-width: 400px;
-            margin: 20px auto;
-        }
-
-        input {
-            padding: 12px;
-            margin-bottom: 10px;
-            border: none;
-            background: #1a1a1a;
-            color: white;
-        }
-
-        button {
-            padding: 15px;
-            background: var(--accent);
-            color: white;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-
-        button:hover { background: #95a5a6; }
-
-        /* Team Bereich */
-        .team-member {
+        .becker-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1500');
+            background-size: cover;
+            padding: 100px 20px;
             text-align: center;
-            padding: 15px;
+            border-bottom: 4px solid var(--gold);
         }
 
-        .team-member img {
-            width: 100px;
-            height: 100px;
-            background: var(--accent);
-            border-radius: 50%;
-            margin-bottom: 10px;
-            filter: grayscale(100%);
+        .becker-header h1 { color: var(--gold); text-transform: uppercase; letter-spacing: 4px; margin: 0; }
+        .becker-slogan { font-style: italic; color: var(--text-light); margin-top: 10px; border-top: 1px solid var(--gold); display: inline-block; padding-top: 5px; }
+
+        .becker-content { max-width: 1000px; margin: 40px auto; padding: 20px; }
+        .becker-box { border: 1px solid var(--gold); padding: 30px; background: rgba(43, 27, 23, 0.5); margin-bottom: 40px; }
+        
+        .becker-team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center; }
+        .becker-member h3 { color: var(--gold); margin-bottom: 5px; }
+        .becker-member p { font-size: 0.8rem; font-style: italic; color: #aaa; }
+
+        /* --- Sektion 2: Klaus & Partner --- */
+        #kp-site {
+            display: none;
+            background-color: var(--kp-black);
         }
 
-        footer {
+        .kp-header {
+            background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1453722751126-773f9983de64?q=80&w=1500');
+            background-size: cover;
+            padding: 80px 20px;
             text-align: center;
-            padding: 40px;
-            font-size: 0.7rem;
-            border-top: 1px solid #333;
+            border-bottom: 2px solid var(--kp-slate);
         }
+
+        .kp-header h1 { color: white; letter-spacing: 5px; margin: 0; }
+        .kp-slogan { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; color: #7f8c8d; margin-top: 10px; }
+
+        .kp-content { max-width: 1100px; margin: 40px auto; padding: 20px; font-family: 'Helvetica', Arial, sans-serif; }
+        .kp-card { background: #222; padding: 20px; border-left: 3px solid var(--kp-slate); margin-bottom: 20px; }
+        .kp-card h3 { color: white; margin-top: 0; }
+
+        /* --- Login & Dokumente --- */
+        .portal-box { background: #111; border: 2px solid #444; padding: 30px; max-width: 500px; margin: 20px auto; }
+        .becker-portal { border-color: var(--gold); background: var(--becker-brown); }
+        .kp-portal { border-color: var(--kp-slate); background: var(--kp-black); }
+
+        input { width: 100%; padding: 12px; margin: 10px 0; background: #000; border: 1px solid #555; color: white; box-sizing: border-box; }
+        button.login-btn { width: 100%; padding: 15px; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+        .becker-btn { background: var(--gold); color: black; }
+        .kp-btn { background: var(--kp-slate); color: white; }
+
+        .document-view { display: none; background: white; color: #111; padding: 40px; margin-top: 30px; box-shadow: 0 0 30px rgba(0,0,0,0.8); font-family: 'Times New Roman', serif; }
+
+        .ornament { color: var(--gold); text-align: center; font-size: 2rem; margin: 20px 0; }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo-container">K<span class="logo-eye">◎</span>P</div>
-    <div class="slogan">Diskretion. Präzision. Gewissheit.</div>
-</header>
-
-<nav>
-    <a href="#services">Dienstleistungen</a>
-    <a href="#team">Ermittlungsteam</a>
-    <a href="#portal">Mandanten-Login</a>
-</nav>
-
-<div class="container">
-    <section id="services">
-        <h2>Spezialisierte Ermittlungsdienste</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Wirtschaftsspionage</h3>
-                <p>Schutz Ihres geistigen Eigentums und Aufdeckung von Informationsabflüssen in Ihrem Unternehmen.</p>
-            </div>
-            <div class="card">
-                <h3>Treuetests</h3>
-                <p>Gewissheit in privaten Angelegenheiten durch diskrete Observation und belastbare Dokumentation.</p>
-            </div>
-            <div class="card">
-                <h3>Personenschutz</h3>
-                <p>Unauffällige Begleitung und Sicherheitsanalysen für exponierte Einzelpersonen und Führungskräfte.</p>
-            </div>
-            <div class="card">
-                <h3>Angestelltenüberwachung</h3>
-                <p>Überprüfung von Verdachtsmomenten bei auffälligen Krankschreibungen oder unlauterem Wettbewerb.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="team">
-        <h2 style="margin-top: 60px;">Ermittlungsteam</h2>
-        <div class="grid">
-            <div class="team-member">
-                <div style="width:80px; height:80px; background:#444; margin:auto; border-radius:50%;"></div>
-                <h3>Johann Klaus</h3>
-                <p>Managing Partner</p>
-            </div>
-            <div class="team-member">
-                <div style="width:80px; height:80px; background:#444; margin:auto; border-radius:50%;"></div>
-                <h3>Sam Varma</h3>
-                <p>Digitale Forensik</p>
-            </div>
-            <div class="team-member">
-                <div style="width:80px; height:80px; background:#444; margin:auto; border-radius:50%;"></div>
-                <h3>Elena Rossi</h3>
-                <p>Observationsleitung</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="portal" class="portal-section">
-        <h2 style="text-align:center;">Mandanten-Portal</h2>
-        <p style="text-align:center;">Sicherer Zugriff auf digitale Akten und Beweismittel (z.B. Akte KP-2026-CB).</p>
-        <div class="login-form">
-            <input type="text" id="caseID" placeholder="Aktenzeichen">
-            <input type="password" id="accessCode" placeholder="Zugangscode">
-            <button onclick="accessFile()">Daten abrufen</button>
-        </div>
-    </section>
+<div class="main-nav">
+    <button id="btn-becker" class="active" onclick="showSite('becker')">Kanzlei Dr. Becker</button>
+    <button id="btn-kp" onclick="showSite('kp')">Klaus & Partner Detektei</button>
 </div>
 
-<footer>
-    &copy; 2026 Privatdetektei Klaus & Partner | Vertraulichkeit ist unser höchstes Gut.
-</footer>
+<!-- WEBSEITE: DR. GERDA BECKER -->
+<div id="becker-site">
+    <header class="becker-header">
+        <h1>Dr. Gerda Becker</h1>
+        <div class="becker-slogan">Tradition bewahren. Zukunft sichern.</div>
+    </header>
+
+    <div class="becker-content">
+        <div class="becker-box" style="text-align: center; border-style: dashed;">
+            <strong>Aktuelles:</strong> Unser Team befindet sich derzeit auf einer Kanzleiklausur im Ausland. 
+            Das Büro ist bis kommenden Montag nicht persönlich besetzt. Nutzen Sie unser digitales Archiv.
+        </div>
+
+        <section id="becker-philosophy" class="becker-box">
+            <h2 style="color: var(--gold); text-align: center;">Philosophie</h2>
+            <p>Ihr Lebenswerk verdient Schutz vor den Unwägbarkeiten der Zeit. Wir sichern Ihre Vision mit Beständigkeit und höchster fachlicher Präzision – für Sie und die kommenden Generationen.</p>
+        </section>
+
+        <section id="becker-team">
+            <h2 style="color: var(--gold); text-align: center;">Unser Team</h2>
+            <div class="becker-team-grid">
+                <div class="becker-member"><h3>Dr. Gerda Becker</h3><p>Notarin & Kanzleigründerin</p></div>
+                <div class="becker-member"><h3>Elias Mansour</h3><p>Assoziierter Rechtsanwalt</p></div>
+                <div class="becker-member"><h3>Sarah Chen</h3><p>Notariatsverwalterin</p></div>
+                <div class="becker-member"><h3>Mateo Rossi</h3><p>Rechtsanwaltsfachangestellter</p></div>
+            </div>
+        </section>
+
+        <div class="ornament">❧</div>
+
+        <section id="becker-database">
+            <h2 style="color: var(--gold); text-align: center;">Digitale Datenbank</h2>
+            <div class="portal-box becker-portal">
+                <label>Urkunden-Nummer:</label>
+                <input type="text" id="becker-nr" placeholder="z.B. 000/2026">
+                <label>Passwort:</label>
+                <input type="password" id="becker-pw" placeholder="••••••••">
+                <button class="login-btn becker-btn" onclick="loginBecker()">Dokument abrufen</button>
+                <p style="font-size: 0.7rem; color: var(--gold); margin-top: 15px; font-style: italic;">
+                    Hinweis: Passwörter folgen der Struktur: TEXT_ZAHL.
+                </p>
+            </div>
+
+            <div id="doc-testament" class="document-view">
+                <p style="text-align: right; font-size: 0.8rem;">Urkundenrolle Nr. 884/2026</p>
+                <h2 style="text-align: center; border-bottom: 2px solid #000;">LETZTWILLIGE VERFÜGUNG (TESTAMENT)</h2>
+                <p>Ich, der unterzeichnende Erblasser, bestimme für den Fall meines Todes Folgendes:</p>
+                <p><strong>1. Miterbenentzug:</strong> Meine leiblichen Kinder setze ich hiermit ausdrücklich auf den <strong>gesetzlichen Pflichtteil</strong>. Mein Sohn hat durch wiederholte geschäftliche Inkompetenz mein Vertrauen missbraucht. Meine Tochter hat sich durch ihren alternativen Lebenswandel bewusst von meinen Werten distanziert.</p>
+                <p><strong>2. Einsetzung der Alleinerbin:</strong> Zu meiner <strong>unbeschränkten Alleinerbin</strong> setze ich meine langjährige Finanzberaterin ein. Sie allein hat bewiesen, dass sie mein Lebenswerk mit Verstand und Loyalität verwalten kann.</p>
+                <br><br>
+                <p style="text-align: center;"><em>Gez. Dr. Gerda Becker (Notarin)</em></p>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- WEBSEITE: KLAUS & PARTNER -->
+<div id="kp-site">
+    <header class="kp-header">
+        <h1>K<span style="color: #7f8c8d;">◎</span>P</h1>
+        <div class="kp-slogan">Diskretion. Präzision. Gewissheit.</div>
+    </header>
+
+    <div class="kp-content">
+        <section id="kp-services">
+            <h2>Dienstleistungen</h2>
+            <div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="kp-card"><h3>Wirtschaftsspionage</h3><p>Schutz von Firmengeheimnissen und Aufdeckung von Informationsabflüssen.</p></div>
+                <div class="kp-card"><h3>Treuetests</h3><p>Gewissheit durch diskrete Observation und belastbare Dokumentation.</p></div>
+            </div>
+        </section>
+
+        <section id="kp-team">
+            <h2>Ermittlungsteam</h2>
+            <div class="kp-card">
+                <p><strong>Jona Klaus:</strong> Gründerin & Expertin für Wirtschaftsspionage. Über 20 Jahre Erfahrung in staatlichen Sicherheitsorganen.</p>
+                <p><strong>Toni Varma:</strong> Spezialist*in für digitale Überwachung. Verantwortlich für IT-Forensik und das Mandanten-Portal.</p>
+                <p><strong>Luca Rossi:</strong> Einsatzleiterin für Observationen. Spezialisiert auf unauffällige Überwachung in komplexen sozialen Gefügen.</p>
+                <p><strong>Robin Lee:</strong> Fachkraft für Personenschutz und diskrete Begleitung von Schutzbefohlenen.</p>
+            </div>
+        </section>
+
+        <section id="kp-portal-sec">
+            <h2>Mandanten-Portal</h2>
+            <div class="portal-box kp-portal">
+                <label>Aktenzeichen:</label>
+                <input type="text" id="kp-case" placeholder="z.B. KP-0000-XX">
+                <button class="login-btn kp-btn" onclick="loginKP()">Akte öffnen</button>
+            </div>
+
+            <div id="doc-detective" class="document-view" style="background: #f0f0f0; font-family: 'Courier New', Courier, monospace;">
+                <h3 style="text-align: center;">ERMITTLUNGSBERICHT: KP-2026-CB</h3>
+                <p><strong>Betreff:</strong> Überwachungsobjekt [Tochter]</p>
+                <p><strong>Ergebnis:</strong> Das Objekt pflegt eine feste, geheime Beziehung zu einer Frau. Die Zielperson wurde bei einer heimlichen Eheschließung beobachtet.</p>
+                <p><strong>Beweismittel:</strong> Dieser Akte liegen physische Fotoabzüge und Original-Negative bei, welche die Ehefrau identifizieren. Das Bild zeigt die Partnerin mit einem silbernen Ring mit geometrischem Muster.</p>
+                <hr>
+                <p style="font-size: 0.8rem;">Hinweis: Digitale Kopien wurden auf Wunsch des Mandanten gelöscht. Nur physische Belege verbleiben beim Auftraggeber.</p>
+            </div>
+        </section>
+    </div>
+</div>
 
 <script>
-    function accessFile() {
-        const id = document.getElementById('caseID').value;
+    function showSite(site) {
+        document.getElementById('becker-site').style.display = (site === 'becker') ? 'block' : 'none';
+        document.getElementById('kp-site').style.display = (site === 'kp') ? 'block' : 'none';
+        document.getElementById('btn-becker').classList.toggle('active', site === 'becker');
+        document.getElementById('btn-kp').classList.toggle('active', site === 'kp');
+    }
+
+    function loginBecker() {
+        const nr = document.getElementById('becker-nr').value;
+        const pw = document.getElementById('becker-pw').value;
+        if(nr === "884/2026" && pw === "Tradition_1920") {
+            document.getElementById('doc-testament').style.display = 'block';
+            window.scrollTo({top: document.getElementById('doc-testament').offsetTop - 100, behavior: 'smooth'});
+        } else { alert("Zugriff verweigert."); }
+    }
+
+    function loginKP() {
+        const id = document.getElementById('kp-case').value;
         if(id === "KP-2026-CB") {
-            alert("Zugriff auf Akte 'Tochter' erfolgt... Bitte kontaktieren Sie die SOKO für die vollständige digitale Kopie.");
-        } else {
-            alert("Aktenzeichen unbekannt oder Zugriff verweigert.");
-        }
+            document.getElementById('doc-detective').style.display = 'block';
+            window.scrollTo({top: document.getElementById('doc-detective').offsetTop - 100, behavior: 'smooth'});
+        } else { alert("Aktenzeichen unbekannt."); }
     }
 </script>
 
