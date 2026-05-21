@@ -171,16 +171,7 @@
 
 
 
-    <section id="portal" class="portal-section">
-        <h2>Mandanten-Portal</h2>
-        <p>Geben Sie Ihr Aktenzeichen und Ihr Passwort ein, um auf Ihre Dokumente zuzugreifen. 
-</p>
-        <div style="font-size: 0.8rem; color: #a88a2d; border-top: 1px dashed var(--gold); margin-top: 20px; padding-top: 15px; font-style: italic;">
-                    <strong>Sicherheitshinweis:</strong><br>
-                    Die Aktenzeichen setzen sich i.d.R. aus den Initialen der Ermittelnden Person, dem Jahr, sowie den Initialen der zu überwachenden Person.
-Das Passwort kann frei gewählt werden.
-                </div>
-            </div>
+    
    <section id="portal" class="portal-section">
     <h2>Mandanten-Portal</h2>
     <p>Geben Sie Ihr Aktenzeichen und Ihr Passwort ein, um auf Ihre Dokumente zuzugreifen.</p>
@@ -197,16 +188,28 @@ Das Passwort kann frei gewählt werden.
     </div>
 
     <!-- Versteckte Akte -->
-    <div id="case-file" style="display: none; background: #f4f4f4; color: #333; padding: 50px; margin-top: 40px; text-align: left; font-family: 'Courier New', Courier, monospace; border: 1px solid #ccc;">
-        <div style="color: #c0392b; font-weight: bold; text-transform: uppercase; border: 2px solid #c0392b; display: inline-block; padding: 5px 15px; margin-bottom: 20px;">Streng Vertraulich</div>
-        <p><strong>AKTENZEICHEN:</strong> KP-2026-CB</p>
-        <p><strong>BETREFF:</strong> Überwachungsobjekt [Clara Becker]</p>
-        <hr>
-        <p><strong>ERMITTLUNGSSTAND:</strong><br>
-        Das Objekt pflegt eine feste, geheime Beziehung zu einer Frau. Die Zielperson wurde bei einer heimlichen Eheschließung beobachtet [1, 2].</p>
-        <p><strong>BEWEISMITTEL-HINWEIS:</strong><br>
-        Der Original-Akte lagen physische Negative bei, welche die Ehefrau identifizieren. Diese zeigen die Partnerin mit einem silbernen Ring mit geometrischem Muster [1-3].</p>
-    </div>
+    <div id="case-file">
+    <div class="confidential">Streng Vertraulich</div>
+    <p><strong>KLAUS & PARTNER – PRIVATDETEKTEI</strong></p>
+    <p><strong>AKTENZEICHEN:</strong> LR-2026-CB</p>
+    <p><strong>BETREFF:</strong> Überwachungsobjekt Clara Becker</p>
+    <p><strong>AUFTRAGGEBER:</strong> Dr. Becker (Persönlich)</p>
+    <hr>
+    
+    <p><strong>1. Aufenthaltsort und Lebensumstände:</strong><br>
+    Die Zielperson hält sich, wie bereits in den Zwischenberichten vermerkt, weiterhin primär in den Räumlichkeiten der links-alternativen Kommune „Freiraum“ auf. Unsere Ermittelnden beobachteten regelmäßige Aktivitäten innerhalb dieses sozialen Gefüges, welches eindeutig über Freundschaft und die guten Sitten hinausgeht.</p>
+    
+    <p><strong>2. Feststellung einer geheimen Beziehung:</strong><br>
+    Im Zuge der intensivierten Observation wurde festgestellt, dass das Objekt eine feste Beziehung pflegt. Es wirkte fast so, als wüssten sie, dass sie überwacht werden, da sie äußerste Anstrengungen unternehmen, der Überwachung zu entgehen.</p>
+    
+    <p><strong>3. Nachweis der Eheschließung:</strong><br>
+    Dies führte dazu, dass wir die Eheregister durchgingen. Clara Becker ist rechtskräftig verheiratet.</p>
+    
+    <p><strong>4. Identifikation der Partnerin:</strong><br>
+    Dieser Akte liegt eine Kopie der Eheurkunde bei, sowie alle physischen Fotoabzüge und die von Ihnen ausdrücklich angeforderten Original-Negative.</p>
+    
+    <p><em><strong>Hinweis der Detektei:</strong> Auf Ihren Wunsch hin wurden alle digitalen Kopien dieses Bildmaterials aus unserer Datenbank gelöscht.</em></p>
+</div>
 </section>
 
 <footer>&copy; 2026 Privatdetektei Klaus & Partner</footer>
@@ -217,7 +220,7 @@ Das Passwort kann frei gewählt werden.
         const pw = document.getElementById('casePW').value;
         
         // Prüfung: Aktenzeichen KP-2026-CB und Passwort Tradition_1920
-        if(id === "KP-2026-CB" && pw === "Tradition_1920") {
+        if(id === "LR-2026-CB" && pw === "Tradition_1920") {
             document.getElementById('case-file').style.display = 'block';
             window.scrollTo({ top: document.getElementById('case-file').offsetTop - 100, behavior: 'smooth' });
         } else {
