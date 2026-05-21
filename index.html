@@ -116,6 +116,8 @@
 
         .confidential { color: #c0392b; font-weight: bold; text-transform: uppercase; border: 2px solid #c0392b; display: inline-block; padding: 5px 15px; margin-bottom: 20px; }
     </style>
+    <!-- QR-Code Bibliothek laden -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
 
@@ -141,7 +143,7 @@
         </div>
     </section>
 
-      <section id="team" class="team-section">
+    <section id="team" class="team-section">
         <h2>Das Ermittlungsteam</h2>
         
         <div class="vita-card">
@@ -165,52 +167,58 @@
         <div class="vita-card">
             <h3>Robin Lee</h3>
             <span class="role">Fachkraft für Personenschutz & diskrete Begleitung</span>
-            <p class="vita-text">Robin Lee bietet Schutz fürPrivatklienten und agiert dabei stets unauffällig im Hintergrund. Robin erstellt zudem präventive Bedrohungsanalysen für exklusive Anwesen, um Schwachstellen in der Außensicherung frühzeitig zu identifizieren.</p>
+            <p class="vita-text">Robin Lee bietet Schutz für Privatklienten und agiert dabei stets unauffällig im Hintergrund. Robin erstellt zudem präventive Bedrohungsanalysen für exklusive Anwesen, um Schwachstellen in der Außensicherung frühzeitig zu identifizieren.</p>
         </div>
     </section>
 
+    <section id="portal" class="portal-section">
+        <h2>Mandanten-Portal</h2>
+        <p>Geben Sie Ihr Aktenzeichen und Ihr Passwort ein, um auf Ihre Dokumente zuzugreifen.</p>
+        <div class="portal-ui">
+            <input type="text" id="caseID" placeholder="AKTENZEICHEN (z.B. XX-JJJJ-XX)">
+            <input type="password" id="casePW" placeholder="PASSWORT">
+            <button onclick="accessFile()">Akte Anfordern</button>
+            
+            <!-- Der neue Hinweistext -->
+            <div style="font-size: 0.8rem; color: #7f8c8d; margin-top: 20px; text-align: left; border-top: 1px dashed #444; padding-top: 15px; font-style: italic;">
+                <strong>Hinweis zur Aktenführung:</strong><br>
+                Die Aktenzeichen setzen sich i.d.R. aus den Initialen der Ermittelnden Person, dem Jahr, sowie den Initialen der zu überwachenden Person zusammen. Das Passwort kann frei gewählt werden.
+            </div>
 
-
-    
-   <section id="portal" class="portal-section">
-    <h2>Mandanten-Portal</h2>
-    <p>Geben Sie Ihr Aktenzeichen und Ihr Passwort ein, um auf Ihre Dokumente zuzugreifen.</p>
-    <div class="portal-ui">
-        <input type="text" id="caseID" placeholder="AKTENZEICHEN (z.B. XX-JJJJ-XX)">
-        <input type="password" id="casePW" placeholder="PASSWORT">
-        <button onclick="accessFile()">Akte Anfordern</button>
-        
-        <!-- Der neue Hinweistext -->
-        <div style="font-size: 0.8rem; color: #7f8c8d; margin-top: 20px; text-align: left; border-top: 1px dashed #444; padding-top: 15px; font-style: italic;">
-            <strong>Hinweis zur Aktenführung:</strong><br>
-            Die Aktenzeichen setzen sich i.d.R. aus den Initialen der Ermittelnden Person, dem Jahr, sowie den Initialen der zu überwachenden Person zusammen. Das Passwort kann frei gewählt werden.
+            <!-- Integrierter QR-Code Platzhalter -->
+            <div style="text-align: center; margin: 25px auto 0 auto; max-width: 160px; background: white; padding: 15px; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                <div id="qrcode" style="display: inline-block;"></div>
+                <p style="color: #1a1a1a; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; margin: 8px 0 0 0; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">
+                    Direktzugriff Portal
+                </p>
+            </div>
         </div>
-    </div>
 
-    <!-- Versteckte Akte -->
-    <div id="case-file">
-    <div class="confidential">Streng Vertraulich</div>
-    <p><strong>KLAUS & PARTNER – PRIVATDETEKTEI</strong></p>
-    <p><strong>AKTENZEICHEN:</strong> LR-2026-CB</p>
-    <p><strong>BETREFF:</strong> Überwachungsobjekt Clara Becker</p>
-    <p><strong>AUFTRAGGEBER:</strong> Dr. Becker (Persönlich)</p>
-    <hr>
-    
-    <p><strong>1. Aufenthaltsort und Lebensumstände:</strong><br>
-    Die Zielperson hält sich, wie bereits in den Zwischenberichten vermerkt, weiterhin primär in den Räumlichkeiten der links-alternativen Kommune „Freiraum“ auf. Unsere Ermittelnden beobachteten regelmäßige Aktivitäten innerhalb dieses sozialen Gefüges, welches eindeutig über Freundschaft und die guten Sitten hinausgeht.</p>
-    
-    <p><strong>2. Feststellung einer geheimen Beziehung:</strong><br>
-    Im Zuge der intensivierten Observation wurde festgestellt, dass das Objekt eine feste Beziehung pflegt. Es wirkte fast so, als wüssten sie, dass sie überwacht werden, da sie äußerste Anstrengungen unternehmen, der Überwachung zu entgehen.</p>
-    
-    <p><strong>3. Nachweis der Eheschließung:</strong><br>
-    Dies führte dazu, dass wir die Eheregister durchgingen. Clara Becker ist rechtskräftig verheiratet.</p>
-    
-    <p><strong>4. Identifikation der Partnerin:</strong><br>
-    Dieser Akte liegt eine Kopie der Eheurkunde bei, sowie alle physischen Fotoabzüge und die von Ihnen ausdrücklich angeforderten Original-Negative.</p>
-    
-    <p><em><strong>Hinweis der Detektei:</strong> Auf Ihren Wunsch hin wurden alle digitalen Kopien dieses Bildmaterials aus unserer Datenbank gelöscht.</em></p>
+        <!-- Versteckte Akte -->
+        <div id="case-file">
+            <div class="confidential">Streng Vertraulich</div>
+            <p><strong>KLAUS & PARTNER – PRIVATDETEKTEI</strong></p>
+            <p><strong>AKTENZEICHEN:</strong> LR-2026-CB</p>
+            <p><strong>BETREFF:</strong> Überwachungsobjekt Clara Becker</p>
+            <p><strong>AUFTRAGGEBER:</strong> Dr. Becker (Persönlich)</p>
+            <hr>
+            
+            <p><strong>1. Aufenthaltsort und Lebensumstände:</strong><br>
+            Die Zielperson hält sich, wie bereits in den Zwischenberichten vermerkt, weiterhin primär in den Räumlichkeiten der links-alternativen Kommune „Freiraum“ auf. Unsere Ermittelnden beobachteten regelmäßige Aktivitäten innerhalb dieses sozialen Gefüges, welches eindeutig über Freundschaft und die guten Sitten hinausgeht.</p>
+            
+            <p><strong>2. Feststellung einer geheimen Beziehung:</strong><br>
+            Im Zuge der intensivierten Observation wurde festgestellt, dass das Objekt eine feste Beziehung pflegt. Es wirkte fast so, als wüssten sie, dass sie überwacht werden, da sie äußerste Anstrengungen unternehmen, der Überwachung zu entgehen.</p>
+            
+            <p><strong>3. Nachweis der Eheschließung:</strong><br>
+            Dies führte dazu, dass wir die Eheregister durchgingen. Clara Becker ist rechtskräftig verheiratet.</p>
+            
+            <p><strong>4. Identifikation der Partnerin:</strong><br>
+            Dieser Akte liegt eine Kopie der Eheurkunde bei, sowie alle physischen Fotoabzüge und die von Ihnen ausdrücklich angeforderten Original-Negative.</p>
+            
+            <p><em><strong>Hinweis der Detektei:</strong> Auf Ihren Wunsch hin wurden alle digitalen Kopien dieses Bildmaterials aus unserer Datenbank gelöscht.</em></p>
+        </div>
+    </section>
 </div>
-</section>
 
 <footer>&copy; 2026 Privatdetektei Klaus & Partner</footer>
 
@@ -227,106 +235,19 @@
             alert("Zugriff verweigert. Bitte prüfen Sie Aktenzeichen und Passwort.");
         }
     }
-</script>
-    <!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR-Code | Klaus & Partner</title>
-    <style>
-        body {
-            background-color: #1a1a1a;
-            color: #bdc3c7;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
 
-        .qr-container {
-            background: #222;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            border: 1px solid #2c3e50;
-            max-width: 400px;
-            width: 90%;
-        }
-
-        h1 {
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        p {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            margin-bottom: 30px;
-        }
-
-        .qr-code-wrapper {
-            background: white;
-            padding: 20px;
-            border-radius: 4px;
-            display: inline-block;
-            margin-bottom: 25px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background: #2c3e50;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background: #34495e;
-        }
-    </style>
-    <!-- Include QR Code Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-</head>
-<body>
-
-<div class="qr-container">
-    <h1>Mandanten-Portal</h1>
-    <p>Scannen Sie den QR-Code, um direkt zum Login-Bereich von Klaus & Partner zu gelangen.</p>
-    
-    <div class="qr-code-wrapper">
-        <div id="qrcode"></div>
-    </div>
-    
-    <div>
-        <a href="https://123dilin123.github.io/klaus_und_partner_detektei/#portal" target="_blank" class="btn">Link direkt öffnen</a>
-    </div>
-</div>
-
-<script>
-    // Generate QR Code targeting the specific section
-    new QRCode(document.getElementById("qrcode"), {
-        text: "https://123dilin123.github.io/klaus_und_partner_detektei/#portal",
-        width: 200,
-        height: 200,
-        colorDark : "#1a1a1a",
-        colorLight : "#ffffff",
-        correctLevel : QRCode.CorrectLevel.H
+    // QR-Code automatisch beim Laden der Seite generieren
+    window.addEventListener('DOMContentLoaded', () => {
+        new QRCode(document.getElementById("qrcode"), {
+            text: "https://123dilin123.github.io/klaus_und_partner_detektei/#portal",
+            width: 160,
+            height: 160,
+            colorDark : "#1a1a1a",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
     });
 </script>
-
-</body>
-</html>
 
 </body>
 </html>
