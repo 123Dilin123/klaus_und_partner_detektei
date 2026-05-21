@@ -174,24 +174,28 @@
     <section id="portal" class="portal-section">
         <h2>Mandanten-Portal</h2>
         <p>Geben Sie Ihr Aktenzeichen und Ihr Passwort ein, um auf Ihre Dokumente zuzugreifen.</p>
+        
+        <!-- Die Passworteingabe (Login Box) -->
         <div class="portal-ui">
             <input type="text" id="caseID" placeholder="AKTENZEICHEN (z.B. XX-JJJJ-XX)">
             <input type="password" id="casePW" placeholder="PASSWORT">
             <button onclick="accessFile()">Akte Anfordern</button>
             
-            <!-- Der neue Hinweistext -->
+            <!-- Der Hinweistext zur Aktenführung -->
             <div style="font-size: 0.8rem; color: #7f8c8d; margin-top: 20px; text-align: left; border-top: 1px dashed #444; padding-top: 15px; font-style: italic;">
                 <strong>Hinweis zur Aktenführung:</strong><br>
                 Die Aktenzeichen setzen sich i.d.R. aus den Initialen der Ermittelnden Person, dem Jahr, sowie den Initialen der zu überwachenden Person zusammen. Das Passwort kann frei gewählt werden.
             </div>
+        </div>
 
-            <!-- Integrierter QR-Code Platzhalter -->
-            <div style="text-align: center; margin: 25px auto 0 auto; max-width: 160px; background: white; padding: 15px; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-                <div id="qrcode" style="display: inline-block;"></div>
-                <p style="color: #1a1a1a; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; margin: 8px 0 0 0; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">
-                    Direktzugriff Portal
-                </p>
+        <!-- HIER PLATZIERT: QR-Code genau eine Ebene darunter (zwischen Passworteingabe und Impressum) -->
+        <div style="text-align: center; margin: 40px auto 10px auto; max-width: 180px;">
+            <div style="background: white; padding: 15px; border-radius: 4px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                <div id="qrcode"></div>
             </div>
+            <p style="color: var(--silver); font-size: 0.8rem; margin-top: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">
+                Direktzugriff via QR-Code
+            </p>
         </div>
 
         <!-- Versteckte Akte -->
@@ -236,12 +240,12 @@
         }
     }
 
-    // QR-Code automatisch beim Laden der Seite generieren
+    // QR-Code beim Laden der Seite generieren
     window.addEventListener('DOMContentLoaded', () => {
         new QRCode(document.getElementById("qrcode"), {
             text: "https://123dilin123.github.io/klaus_und_partner_detektei/#portal",
-            width: 160,
-            height: 160,
+            width: 150,
+            height: 150,
             colorDark : "#1a1a1a",
             colorLight : "#ffffff",
             correctLevel : QRCode.CorrectLevel.H
