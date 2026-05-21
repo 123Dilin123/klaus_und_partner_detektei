@@ -173,25 +173,41 @@
 
     <section id="portal" class="portal-section">
         <h2>Mandanten-Portal</h2>
-        <p>Geben Sie Ihr Aktenzeichen und Ihr Passwort ein, um auf Ihre Dokumente zuzugreifen.</p>
-        <div class="portal-ui">
-            <input type="text" id="caseID" placeholder="AKTENZEICHEN (z.B. KP-2026-CB)">
-            <input type="password" id="casePW" placeholder="PASSWORT">
-            <button onclick="accessFile()">Akte Anfordern</button>
+        <p>Geben Sie Ihr Aktenzeichen und Ihr Passwort ein, um auf Ihre Dokumente zuzugreifen. 
+</p>
+        <div style="font-size: 0.8rem; color: #a88a2d; border-top: 1px dashed var(--gold); margin-top: 20px; padding-top: 15px; font-style: italic;">
+                    <strong>Sicherheitshinweis:</strong><br>
+                    Die Aktenzeichen setzen sich i.d.R. aus den Initialen der Ermittelnden Person, dem Jahr, sowie den Initialen der zu überwachenden Person.
+Das Passwort kann frei gewählt werden.
+                </div>
+            </div>
+   <section id="portal" class="portal-section">
+    <h2>Mandanten-Portal</h2>
+    <p>Geben Sie Ihr Aktenzeichen und Ihr Passwort ein, um auf Ihre Dokumente zuzugreifen.</p>
+    <div class="portal-ui">
+        <input type="text" id="caseID" placeholder="AKTENZEICHEN (z.B. KP-2026-CB)">
+        <input type="password" id="casePW" placeholder="PASSWORT">
+        <button onclick="accessFile()">Akte Anfordern</button>
+        
+        <!-- Der neue Hinweistext -->
+        <div style="font-size: 0.8rem; color: #7f8c8d; margin-top: 20px; text-align: left; border-top: 1px dashed #444; padding-top: 15px; font-style: italic;">
+            <strong>Hinweis zur Aktenführung:</strong><br>
+            Die Aktenzeichen setzen sich i.d.R. aus den Initialen der Ermittelnden Person, dem Jahr, sowie den Initialen der zu überwachenden Person zusammen. Das Passwort kann frei gewählt werden.
         </div>
+    </div>
 
-        <div id="case-file">
-            <div class="confidential">Streng Vertraulich</div>
-            <p><strong>AKTENZEICHEN:</strong> KP-2026-CB</p>
-            <p><strong>BETREFF:</strong> Überwachungsobjekt [Tochter Clara Becker]</p>
-            <hr>
-            <p><strong>ERMITTLUNGSSTAND:</strong><br>
-            Das Objekt pflegt eine feste, geheime Beziehung zu einer Frau. Die Zielperson wurde bei einer heimlichen Eheschließung beobachtet.</p>
-            <p><strong>WICHTIGE FESTSTELLUNG:</strong><br>
-            Der Original-Akte für Dr. Becker lagen physische Negative bei. Diese zeigen die Partnerin mit einem silbernen Ring mit geometrischem Muster.</p>
-        </div>
-    </section>
-</div>
+    <!-- Versteckte Akte -->
+    <div id="case-file" style="display: none; background: #f4f4f4; color: #333; padding: 50px; margin-top: 40px; text-align: left; font-family: 'Courier New', Courier, monospace; border: 1px solid #ccc;">
+        <div style="color: #c0392b; font-weight: bold; text-transform: uppercase; border: 2px solid #c0392b; display: inline-block; padding: 5px 15px; margin-bottom: 20px;">Streng Vertraulich</div>
+        <p><strong>AKTENZEICHEN:</strong> KP-2026-CB</p>
+        <p><strong>BETREFF:</strong> Überwachungsobjekt [Clara Becker]</p>
+        <hr>
+        <p><strong>ERMITTLUNGSSTAND:</strong><br>
+        Das Objekt pflegt eine feste, geheime Beziehung zu einer Frau. Die Zielperson wurde bei einer heimlichen Eheschließung beobachtet [1, 2].</p>
+        <p><strong>BEWEISMITTEL-HINWEIS:</strong><br>
+        Der Original-Akte lagen physische Negative bei, welche die Ehefrau identifizieren. Diese zeigen die Partnerin mit einem silbernen Ring mit geometrischem Muster [1-3].</p>
+    </div>
+</section>
 
 <footer>&copy; 2026 Privatdetektei Klaus & Partner</footer>
 
